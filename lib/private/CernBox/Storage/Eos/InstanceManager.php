@@ -189,6 +189,9 @@ class InstanceManager implements  IInstance {
 	public function rename($username, $fromOcPath, $toOcPath) {
 		return $this->currentInstance->rename($username, $fromOcPath, $toOcPath);
 	}
+	public function touch($username, $ocPath) {
+		return $this->currentInstance->touch($username, $ocPath);
+	}
 
 	/*
 	 * Namespace functions

@@ -737,8 +737,7 @@ class Storage implements \OCP\Files\Storage
 	if($this->username === self::USERNAME_FOR_REQUEST_WITHOUT_USER_CONTEXT) {
 		return false;
 	}
-    	$stream = fopen('php://memory', 'r');
-		return $this->instanceManager->write($this->username, $path, $stream);
+	return $this->instanceManager->touch($this->username, $path);
     }
 
     /**

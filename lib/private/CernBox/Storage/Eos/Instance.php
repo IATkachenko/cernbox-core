@@ -236,6 +236,23 @@ class Instance implements IInstance {
 		}
 	}
 
+	public function touch($username, $ocPath) {
+		if($this->isReadOnly) {
+			return false;
+		}
+		$translator = $this->getTranslator($username);
+		$eosPath = $translator->toEos($ocPath);
+		$eosPath = escapeshellarg($eosPath);
+		$command = "touch $eosPath";
+		$commander = $this->getCommander($username);
+		list(, $errorCode) = $commander->exec($command);
+		if ($errorCode !== 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	/*
 	 * Namespace functions
 	 */

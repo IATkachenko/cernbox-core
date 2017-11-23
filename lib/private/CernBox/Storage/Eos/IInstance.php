@@ -24,6 +24,7 @@ interface IInstance {
 	public function read($username, $ocPath);
 	public function write($username, $ocPath, $stream);
 	public function rename($username, $fromOcPath, $toOcPath);
+	public function touch($username, $ocPath);
 	public function get($username, $ocPath);
 	public function getFolderContents($username, $ocPath);
 	public function getPathById($username, $id);
